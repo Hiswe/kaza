@@ -1,0 +1,26 @@
+@import "../scss/variables.scss";
+.detail {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .info {
+    font-family: Montserrat;
+    color: $colorPrimary;
+    font-weight: 500;
+    .title {
+      font-size: 36px;
+      line-height: 51px;
+    }
+    .location {
+      font-size: 18px;
+      line-height: 26px;
+      margin-bottom: 20px;
+    }
+    .tags {
+      display: flex;
+      gap: 5px;
+    }
+  }
+}

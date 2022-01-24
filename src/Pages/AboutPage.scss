@@ -1,0 +1,14 @@
+.about-page {
+  .about-banner {
+    margin: auto;
+    width: 94%;
+  }
+  .about-collapsible {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 0px;
+  }
+}

@@ -1,0 +1,41 @@
+@import "../scss/variables.scss";
+.collapsible {
+  height: 52px;
+  width: 94%;
+  margin: 20px;
+  .collapsible-button {
+    background-color: $colorPrimary;
+    color: white;
+
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+    .title-collapsible {
+      padding-left: 20px;
+      padding-top: 5px;
+    }
+    i {
+      padding: 10px;
+    }
+  }
+}
+.content {
+  padding: 0 18px;
+  display: none;
+  min-height: 60px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: $colorSecondary;
+  left: 0px;
+  top: 42px;
+  color: $colorPrimary;
+  p {
+    white-space: pre-line;
+  }
+}
