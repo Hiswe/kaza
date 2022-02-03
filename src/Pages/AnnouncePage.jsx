@@ -6,20 +6,25 @@ import Api from "../Api/Api";
 
 const AnnouncePage = () => {
   const params = useParams();
-  const [announce, setAnnounce] = useState();
+  const [announce, setAnnounce] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const _announce = Api.getDataById(params.id);
-    if (_announce) {
-      setAnnounce(_announce);
-      console.log(_announce);
-    } else {
-      //TODO: navigate to error page
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const response = await Api.getDataById(params.id);
+        setAnnounce(response);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    fetchData();
   }, [params.id]);
 
-  return !announce ? (
-    <></>
+  return isLoading ? (
+    `Loading…`
   ) : (
     <div className="announce-page">
       <Slider images={announce.pictures} />
