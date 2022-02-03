@@ -1,26 +1,18 @@
-import "./HomePage.scss";
-import React, { useEffect, useState } from "react";
-import { Banner, Card } from "../components";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Api from "../Api/Api";
+
+import "./HomePage.scss";
+import { Banner, Card } from "../components";
+import { useData } from "../hooks/useApi.js";
 
 const HomePage = () => {
-  const [apartments, setApartments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [{ data: apartments, isLoading, isError }] = useData(``, []);
 
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      try {
-        const response = await Api.getData();
-        setApartments(response);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
+    // TODO: display error page
+    console.log(`display error page`);
+  }, [isError]);
+  
 
   return (
     <main className="home-page">

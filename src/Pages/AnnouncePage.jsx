@@ -1,29 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { Host, Slider, Collapsible } from "../components";
 import "./AnnouncePage.scss";
-import Api from "../Api/Api";
+import { useData } from "../hooks/useApi.js";
 
 const AnnouncePage = () => {
   const params = useParams();
-  const [announce, setAnnounce] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+
+  const [{ data: announce, isLoading, isError }, setId] = useData(
+    params.id,
+    {}
+  );
 
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      try {
-        const response = await Api.getDataById(params.id);
-        setAnnounce(response);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, [params.id]);
+    // TODO: display error page
+    console.log(`display error page`);
+  }, [isError]);
 
-  return isLoading ? (
+  useEffect(() => {
+    console.log(`set a new ID`);
+    setId(params.id);
+    // linter ask for all dependencies
+    // It can't know that `setId` is a setter… so it will complain
+    // https://stackoverflow.com/a/59712002
+  }, [params.id, setId]);
+
+  return isLoading || !announce.id ? (
     `Loading…`
   ) : (
     <div className="announce-page">
