@@ -1,14 +1,12 @@
-@import "../scss/variables.scss";
 .detail {
-  width: 90%;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   .info {
-    font-family: Montserrat;
-    color: $colorPrimary;
+    color: var(--color-primary);
     font-weight: 500;
+
     .title {
       font-size: 36px;
       line-height: 51px;

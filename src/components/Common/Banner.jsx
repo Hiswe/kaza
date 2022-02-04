@@ -1,5 +1,5 @@
 import React from "react";
-import "./Banner.scss";
+import "./Banner.css";
 
 const Banner = (props) => {
   return (
@@ -10,7 +10,7 @@ const Banner = (props) => {
       url("./assets/images/Banner.svg")`,
       }}
     >
-      <h1 className="banner-title">{props.text}</h1>
+      <h1 className="banner__title">{props.children}</h1>
     </div>
   );
 };

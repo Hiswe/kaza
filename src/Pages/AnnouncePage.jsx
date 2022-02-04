@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
-import { Host, Slider, Collapsible } from "../components";
-import "./AnnouncePage.scss";
+
+import { Host, Slider } from "../components";
+import Collapsible from "../components/Common/Collapsible";
 import { useData } from "../hooks/useApi.js";
+
+import "./AnnouncePage.css";
 
 const AnnouncePage = () => {
   const params = useParams();
@@ -41,16 +44,10 @@ const AnnouncePage = () => {
         />
       </div>
       <div className="announce-collapsible">
-        <Collapsible
-          title="Description"
-          description={announce.description}
-          radius={10}
-        />
-        <Collapsible
-          title="Équipements"
-          description={announce.equipments.join("\n")}
-          radius={10}
-        />
+        <Collapsible title="Description">{announce.description}</Collapsible>
+        <Collapsible title="Équipements">
+          {announce.equipments.join("\n")}
+        </Collapsible>
       </div>
     </div>
   );

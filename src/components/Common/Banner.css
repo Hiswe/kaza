@@ -1,0 +1,20 @@
+.banner {
+  margin: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 223px;
+  border-radius: var(--border-radius-big);
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner__title {
+  color: white;
+  position: relative;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 68px;
+}
