@@ -4,13 +4,19 @@ function wait(data = {}, ms = 750) {
   return new Promise((resolve) => setTimeout(() => resolve(data), ms));
 }
 
-export default class Api {
-  static getData = () => {
+const Api = {
+  getData() {
     return wait(data);
-  };
-  static getDataById = (id) => {
+  },
+  getDataById(id) {
     const datum = data.find((element) => element.id === id);
-    datum.rating = Number(datum.rating);
+    if (!datum) {
+      const error = new Error(`not found`);
+      return new Promise((_, reject) => setTimeout(() => reject(error), 750));
+    }
+    datum.rating = Number.parseInt(datum.rating, 10);
     return wait(datum);
-  };
-}
+  },
+};
+
+export default Api;

@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
-import { Host, Slider } from "../components";
+import { Slider } from "../components";
+import Title from "../components/AnnouncePage/Title";
+import Host from "../components/AnnouncePage/Host";
+import Rating from "../components/AnnouncePage/Rating";
+import TagList from "../components/AnnouncePage/TagList";
 import Collapsible from "../components/Common/Collapsible";
 import { useData } from "../hooks/useApi.js";
 
@@ -33,20 +37,24 @@ const AnnouncePage = () => {
   ) : (
     <div className="announce-page">
       <Slider images={announce.pictures} />
-      <div className="announce-infos">
-        <Host
-          name={announce.host.name}
-          cover={announce.host.picture}
-          rating={announce.rating}
-          tags={announce.tags}
-          title={announce.title}
-          location={announce.location}
-        />
+      <div className="announce-page__header">
+        <div>
+          <Title announce={announce} />
+          <TagList tags={announce.tags} />
+        </div>
+        <div>
+          <Host host={announce.host} />
+          <Rating rating={announce.rating} />
+        </div>
       </div>
-      <div className="announce-collapsible">
+      <div className="announce-page__info">
         <Collapsible title="Description">{announce.description}</Collapsible>
         <Collapsible title="Équipements">
-          {announce.equipments.join("\n")}
+          <ul className="announce-page__equipements">
+            {announce.equipments.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
         </Collapsible>
       </div>
     </div>

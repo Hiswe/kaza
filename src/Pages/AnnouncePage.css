@@ -1,7 +1,29 @@
-
-.announce-collapsible {
+.announce-page{
+  --gap: 24px;
+}
+.announce-page__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding: var(--gap) 0;
+}
+.announce-page__header > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+.announce-page__header > div:last-child {
+  align-items: flex-end;
+}
+.announce-page__info {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 30px;
-
+  padding-bottom: var(--gap);
+}
+.announce-page__equipements {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
