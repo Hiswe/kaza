@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Api from "../Api/Api.js";
 
 export const useData = (initialId = ``, initialData) => {
+  const navigate = useNavigate();
   const [data, setData] = useState(initialData);
   const [id, setId] = useState(initialId);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
       setIsLoading(true);
 
       try {
@@ -17,13 +18,13 @@ export const useData = (initialId = ``, initialData) => {
         const response = await Api[methodName](id);
         setData(response);
       } catch (error) {
-        setIsError(true);
+        navigate(`/404`)
       }
       setIsLoading(false);
     };
 
     fetchData();
-  }, [id]);
+  }, [id, navigate]);
 
-  return [{ data, isLoading, isError }, setId];
+  return [{ data, isLoading }, setId];
 };

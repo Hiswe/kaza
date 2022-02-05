@@ -14,15 +14,10 @@ import "./AnnouncePage.css";
 const AnnouncePage = () => {
   const params = useParams();
 
-  const [{ data: announce, isLoading, isError }, setId] = useData(
+  const [{ data: announce, isLoading }, setId] = useData(
     params.id,
     {}
   );
-
-  useEffect(() => {
-    // TODO: display error page
-    console.log(`display error page`);
-  }, [isError]);
 
   useEffect(() => {
     console.log(`set a new ID`);

@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React  from "react";
 
 import "./HomePage.css";
 import Banner from "../components/Common/Banner";
-import ApartmentCard from "../components/HomePage/ApartmentCard"
+import ApartmentCard from "../components/HomePage/ApartmentCard";
 import { useData } from "../hooks/useApi.js";
 
 const HomePage = () => {
-  const [{ data: apartments, isLoading, isError }] = useData(``, []);
-
-  useEffect(() => {
-    // TODO: display error page
-    console.log(`display error page`);
-  }, [isError]);
+  const [{ data: apartments, isLoading, }] = useData(``, []);
 
   return (
     <main className="home-page">
