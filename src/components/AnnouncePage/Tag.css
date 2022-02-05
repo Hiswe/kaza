@@ -1,10 +1,15 @@
 .tag {
   background-color: var(--color-primary);
   color: white;
-  font-size: 14px;
+  font-size: 0.625rem;
   border-radius: var(--border-radius);
   min-width: 115px;
   padding: 0.25em 1em;
   text-align: center;
   display: inline-block;
+}
+@media screen and (min-width: 768px) {
+  .tag { 
+    font-size: 0.75rem;   
+  }
 }

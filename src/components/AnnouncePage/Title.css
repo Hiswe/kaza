@@ -3,6 +3,16 @@
   font-weight: 500;
 }
 .title__title {
-  font-size: 36px;
-  line-height: 51px;
+  font-size: 1.125rem;
+}
+.title__location {
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 768px) {
+  .title__title {
+    font-size: 2rem;
+  }
+  .title__location {
+    font-size: 1rem;
+  }
 }

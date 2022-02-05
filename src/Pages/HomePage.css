@@ -5,17 +5,19 @@
   gap: var(--gutter);
 }
 @media screen and (min-width: 768px) {
+  .home-page {
+    gap: calc(var(--gutter) * 2);
+  }
   .home-page__card-list {
     --gap: calc(var(--gutter) * 3);
     background: var(--color-grey-light);
     padding: calc(var(--gutter) * 2.5) ;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--gap);
     place-items: center;
     background: var(--color-grey-light);
     padding: var(--gap);
-    /* margin-top: 40px; */
     border-radius: var(--border-radius-big);
   }
 }

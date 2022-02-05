@@ -1,7 +1,5 @@
 .about-page__content {
   --gap: 33px;
-  width: 90%;
-  margin: auto;
   display: flex;
   flex-direction: column;
   gap: var(--gap);

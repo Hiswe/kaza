@@ -4,19 +4,11 @@
   border-radius: var(--border-radius);
   overflow: hidden;
 }
-
-@media screen and (min-width: 768px) {
-  .apartment-card {
-    height: 340px;
-  }
-}
-
 .apartment-card__image {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
-
 .apartment-card__name {
   margin: 0;
   color: white;
@@ -25,9 +17,13 @@
   right: 0;
   bottom: 0;
   font-weight: 500;
-  line-height: 26px;
   letter-spacing: 0em;
   text-align: left;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
   padding: 2rem 1rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .apartment-card {
+    height: 340px;
+  }
 }

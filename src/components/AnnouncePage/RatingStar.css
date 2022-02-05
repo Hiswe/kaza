@@ -1,7 +1,6 @@
 .rating-star {
     color: var(--color-grey)
 }
-
 .rating-star--is-active {
     color: var(--color-primary)
 }

@@ -1,9 +1,12 @@
 .host {
   display: flex;
   text-align: right;
-  align-items: flex-end;
-  gap: 20px;
+  align-items: center;
+  gap: calc(var(--gutter) / 2);
   color: var(--color-primary);
+}
+.host__name span {
+  display: block;
 }
 .host__image img {
   width: 64px;
