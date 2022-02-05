@@ -1,8 +1,14 @@
 .apartment-card {
-  height: 340px;
+  height: 255px;
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .apartment-card {
+    height: 340px;
+  }
 }
 
 .apartment-card__image {

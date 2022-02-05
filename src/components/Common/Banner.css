@@ -1,20 +1,27 @@
 .banner {
-  margin: auto;
+  --banner-scale: 1;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 223px;
+  height: calc(110px * var(--banner-scale));
   border-radius: var(--border-radius-big);
   background-color: var(--color-primary);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: var(--gutter);
+}
+@media screen and (min-width: 768px) {
+  .banner { 
+    --banner-scale: 2;
+    align-items: center;
+  }
 }
 
 .banner__title {
   color: white;
   position: relative;
-  font-size: 48px;
+  font-size: calc(24px * var(--banner-scale));
   font-weight: 500;
-  line-height: 68px;
+  margin: 0;
 }
