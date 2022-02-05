@@ -2,17 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./Host.css";
+import SkeletonLoader from "../Common/SkeletonLoader";
 
-export const Host = ({ host }) => {
+export const Host = ({ host = {}, isLoading = false }) => {
   return (
     <div className="host">
       <div className="host__name">
-        {host.name.split(` `).map((text) => (
-          <span key={text}>{text}</span>
-        ))}
+        {host.name &&
+          host.name.split(` `).map((text) => <span key={text}>{text}</span>)}
       </div>
       <div className="host__image">
-        <img src={host.picture} alt="profil" />
+        {isLoading ? (
+          <SkeletonLoader />
+        ) : (
+          <img src={host.picture} alt="profile" />
+        )}
       </div>
     </div>
   );
@@ -20,6 +24,7 @@ export const Host = ({ host }) => {
 
 Host.propTypes = {
   host: PropTypes.object,
+  isLoading: PropTypes.bool,
 };
 
 export default Host;

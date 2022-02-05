@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./Collapsible.css";
 import PropTypes from "prop-types";
 
-const Collapsible = (props) => {
+import "./Collapsible.css";
+import SkeletonLoader from "./SkeletonLoader";
+
+const Collapsible = ({ title = ``, isLoading = false, children }) => {
   const [showDetail, setShowDetail] = useState(false);
 
   const componentClasses = [`collapsible`];
@@ -10,20 +12,27 @@ const Collapsible = (props) => {
 
   return (
     <dl className={componentClasses.join(` `)}>
-      <dt
-        className="collapsible__button"
-        onClick={() => setShowDetail(!showDetail)}
-      >
-        <div className="title-collapsible">{props.title}</div>
-        <i className="fas fa-chevron-up"></i>
-      </dt>
-      <dd className="collapsible__content">{props.children}</dd>
+      {isLoading ? (
+        <SkeletonLoader className="collapsible__button" />
+      ) : (
+        <>
+          <dt
+            className="collapsible__button"
+            onClick={() => setShowDetail(!showDetail)}
+          >
+            <div className="title-collapsible">{title}</div>
+            <i className="fas fa-chevron-up"></i>
+          </dt>
+          <dd className="collapsible__content">{children}</dd>
+        </>
+      )}
     </dl>
   );
 };
 
 Collapsible.propTypes = {
   title: PropTypes.string,
+  isLoading: PropTypes.bool,
 };
 
 export default Collapsible;

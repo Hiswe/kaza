@@ -13,10 +13,7 @@ import Collapsible from "../components/Common/Collapsible";
 const AnnouncePage = () => {
   const params = useParams();
 
-  const [{ data: announce, isLoading }, setId] = useData(
-    params.id,
-    {}
-  );
+  const [{ data: announce, isLoading }, setId] = useData(params.id, {});
 
   useEffect(() => {
     setId(params.id);
@@ -25,29 +22,31 @@ const AnnouncePage = () => {
     // https://stackoverflow.com/a/59712002
   }, [params.id, setId]);
 
-  return isLoading || !announce.id ? (
-    `Loading…`
-  ) : (
+  return (
     <div className="announce-page">
-      <Slider images={announce.pictures} />
+      <Slider images={announce.pictures} isLoading={isLoading} />
       <div className="announce-page__header">
         <div>
-          <Title announce={announce} />
+          <Title announce={announce} isLoading={isLoading} />
           <TagList tags={announce.tags} />
         </div>
         <div>
-          <Host host={announce.host} />
+          <Host host={announce.host} isLoading={isLoading} />
           <Rating rating={announce.rating} />
         </div>
       </div>
       <div className="announce-page__info">
-        <Collapsible title="Description">{announce.description}</Collapsible>
-        <Collapsible title="Équipements">
-          <ul className="announce-page__equipements">
-            {announce.equipments.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <Collapsible title="Description" isLoading={isLoading}>
+          {announce.description}
+        </Collapsible>
+        <Collapsible title="Équipements" isLoading={isLoading}>
+          {Array.isArray(announce.equipments) ? (
+            <ul className="announce-page__equipements">
+              {announce.equipments.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : null}
         </Collapsible>
       </div>
     </div>

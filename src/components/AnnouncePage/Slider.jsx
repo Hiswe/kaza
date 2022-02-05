@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./Slider.css";
+import SkeletonLoader from "../Common/SkeletonLoader";
 
-const Slider = ({ images = [] }) => {
+const Slider = ({ images = [], isLoading = false }) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const onPrev = () => {
@@ -13,6 +14,8 @@ const Slider = ({ images = [] }) => {
   const onNext = () => {
     setImageIndex(imageIndex + 1 < images.length ? imageIndex + 1 : 0);
   };
+
+  if (isLoading) return <SkeletonLoader className="slider" />;
 
   return (
     <div
@@ -39,6 +42,7 @@ const Slider = ({ images = [] }) => {
 
 Slider.propTypes = {
   images: PropTypes.array,
+  isLoading: PropTypes.bool,
 };
 
 export default Slider;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import RatingStar from "./RatingStar";
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating = 0 }) => {
   return (
     <div>
       {Array.from({ length: 5 }).map((_, index) => (
@@ -14,7 +14,7 @@ const Rating = ({ rating }) => {
 };
 
 Rating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.number,
 };
 
 export default Rating;
