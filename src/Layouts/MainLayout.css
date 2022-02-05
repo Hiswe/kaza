@@ -11,6 +11,9 @@
   padding-top: 40px;
   padding-bottom: 60px;
 }
+.main-layout__header-logo {
+  fill: var(--color-primary);
+}
 .main-layout__header-navbar {
   display: flex;
   justify-content: space-between;
@@ -37,14 +40,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
 }
-.main-layout__footer img {
+.main-layout__footer-logo {
   width: 80px;
   height: 40px;
   margin-top: 20px;
+  fill: currentColor;
 }
 .main-layout__footer p {
-  color: white;
   font-family: Montserrat;
   font-size: 24px;
   font-style: normal;
