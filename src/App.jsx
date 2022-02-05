@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import MainLayout from "./Layouts/MainLayout";
 import AboutPage from "./Pages/AboutPage";
 import AnnouncePage from "./Pages/AnnouncePage";

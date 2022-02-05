@@ -7,7 +7,7 @@ const Banner = (props) => {
       className="banner"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("./assets/images/Banner.svg")`,
+      url("/assets/images/Banner.svg")`,
       }}
     >
       <h1 className="banner__title">{props.children}</h1>

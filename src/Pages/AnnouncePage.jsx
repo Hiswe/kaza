@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
-import { Slider } from "../components";
+import "./AnnouncePage.css";
+import { useData } from "../hooks/useApi.js";
+import Slider from "../components/AnnouncePage/Slider";
 import Title from "../components/AnnouncePage/Title";
 import Host from "../components/AnnouncePage/Host";
 import Rating from "../components/AnnouncePage/Rating";
 import TagList from "../components/AnnouncePage/TagList";
 import Collapsible from "../components/Common/Collapsible";
-import { useData } from "../hooks/useApi.js";
-
-import "./AnnouncePage.css";
 
 const AnnouncePage = () => {
   const params = useParams();
@@ -20,7 +19,6 @@ const AnnouncePage = () => {
   );
 
   useEffect(() => {
-    console.log(`set a new ID`);
     setId(params.id);
     // linter ask for all dependencies
     // It can't know that `setId` is a setter… so it will complain
@@ -47,7 +45,7 @@ const AnnouncePage = () => {
         <Collapsible title="Équipements">
           <ul className="announce-page__equipements">
             {announce.equipments.map((item) => (
-              <li>{item}</li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </Collapsible>

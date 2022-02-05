@@ -3,7 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 
 import "./MainLayout.css";
 
-export default function MainLayout(props) {
+export default function MainLayout() {
   return (
     <>
       <div className="main-layout">
